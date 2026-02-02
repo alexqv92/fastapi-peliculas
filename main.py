@@ -17,11 +17,11 @@ import uvicorn
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    init_db()
+    threading.Thread(target=init_db, daemon=True).start()
     yield
 
-
 app = FastAPI(lifespan=lifespan)
+
 
 app.mount("/static", StaticFiles(directory="src/static"), name="static")
 templates = Jinja2Templates(directory="src/templates")

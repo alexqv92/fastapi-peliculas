@@ -33,8 +33,8 @@ def init_db():
         except OperationalError:
             print("⏳ Esperando a la base de datos...")
             time.sleep(3)
-    else:
-        raise RuntimeError("❌ No se pudo conectar a la base de datos")
+            
+        print(" No se pudo conectar a la base de datos, la app sigue arrancando")
 
     # Insertar datos iniciales SOLO si la tabla está vacía
     with Session(engine) as session:

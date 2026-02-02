@@ -8,7 +8,7 @@ import time
 db_user: str = "quevedo"
 db_password: str = "1234"
 db_server: str = "fastapi-db" # Cambiar por "localhost" si se usa Docker
-db_port: int = 3307# Cambiar por 3306 si se usa localmente
+db_port: int = 3306# Cambiar por 3306 si se usa localmente
 db_name: str = "peliculasdb"
 
 DATABASE_URL = f"mysql+pymysql://{db_user}:{db_password}@{db_server}:{db_port}/{db_name}"

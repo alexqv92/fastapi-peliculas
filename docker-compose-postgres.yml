@@ -1,7 +1,4 @@
 name: fastapi-peliculas-postgres
-# La app es independiente de la base de datos. 
-# La configuracion se realiza mediante variables de entorno
-# Esto permite cambiar de MySQL a Postgres sin cambiar la app 
 services:
   fastapi-app: 
     build:

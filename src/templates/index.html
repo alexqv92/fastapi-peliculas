@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', path='styles.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>{{ mensaje }}</h1>
+
+        <h2>Menú</h2>
+
+        <a class="btn" href="{{ url_for('listar_peliculas') }}">
+            🎬 Listar Películas
+        </a>
+    </div>
+
+</body>
+</html>
+

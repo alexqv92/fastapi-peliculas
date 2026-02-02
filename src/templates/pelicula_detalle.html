@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle película</title>
+</head>
+<body>
+
+<h1>Detalle de la película</h1>
+
+<ul>
+    <li><strong>Título:</strong> {{ pelicula.titulo }}</li>
+    <li><strong>Director:</strong> {{ pelicula.director }}</li>
+    <li><strong>Género:</strong> {{ pelicula.genero }}</li>
+    <li><strong>Año:</strong> {{ pelicula.anio }}</li>
+    <li><strong>Duración:</strong> {{ pelicula.duracion }} min</li>
+</ul>
+
+<p>
+    <a href="/peliculas">Volver</a> |
+    <a href="/peliculas/editar/{{ pelicula.id }}">Editar</a> |
+    <a href="/peliculas/eliminar/{{ pelicula.id }}">Eliminar</a>
+</p>
+
+</body>
+</html>
+

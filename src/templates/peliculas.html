@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Películas</title>
+</head>
+<body>
+
+<h1>Lista de películas</h1>
+
+<p>
+    <a href="/peliculas/crear">➕ Nueva película</a>
+</p>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>TÍTULO</th>
+        <th>AÑO</th>
+        <th>DIRECTOR</th>
+        <th>Operaciones</th>
+    </tr>
+
+    {% for pelicula in peliculas %}
+    <tr>
+        <td>{{ pelicula.id }}</td>
+        <td>{{ pelicula.titulo }}</td>
+        <td>{{ pelicula.anio }}</td>
+        <td>{{ pelicula.director }}</td>
+        <td>
+            <a href="/peliculas/{{ pelicula.id }}">Detalle</a>
+            |
+            <a href="/peliculas/editar/{{ pelicula.id }}">Editar</a>
+            |
+            <a href="/peliculas/eliminar/{{ pelicula.id }}">Borrar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

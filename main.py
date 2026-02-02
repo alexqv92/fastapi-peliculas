@@ -7,6 +7,7 @@ from fastapi.responses import RedirectResponse
 from starlette.status import HTTP_303_SEE_OTHER
 
 from contextlib import asynccontextmanager
+import threading
 from sqlmodel import Session, select
 
 from src.data.db import init_db, get_session

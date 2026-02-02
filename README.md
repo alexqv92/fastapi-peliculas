@@ -74,12 +74,12 @@ Render construye la imagen y expone la app en el puerto 8000.
 
 ## 9. Inicialización del repositorio Git
 
-git init  
-git add .  
-git commit -m "Proyecto FastAPI películas"  
-git branch -M main  
-git remote add origin https://github.com/alexqv92/fastapi-peliculas.git  
-git push -u origin main  
+1. git init # Iniciar gitHub
+2. git add .  # Añade todos los archivos modificados y nuevos
+3. git commit -m "Proyecto FastAPI películas"  # Guarda los cambios
+4. git branch -M main  
+5. git remote add origin https://github.com/alexqv92/fastapi-peliculas.git  
+6. git push -u origin main  # Los sube a GitHub
 
 
 # 🚀 Deploy de FastAPI + PostgreSQL en Render

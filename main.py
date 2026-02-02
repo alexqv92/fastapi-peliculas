@@ -27,10 +27,7 @@ app.mount("/static", StaticFiles(directory="src/static"), name="static")
 templates = Jinja2Templates(directory="src/templates")
 
 
-# -------------------------
 # PÁGINAS WEB
-# -------------------------
-
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
     mensaje = "Bienvenido a la aplicación de películas"
@@ -38,7 +35,6 @@ async def home(request: Request):
         "index.html",
         {"request": request, "mensaje": mensaje}
     )
-
 
 @app.get("/peliculas", response_class=HTMLResponse)
 async def listar_peliculas(
@@ -52,17 +48,13 @@ async def listar_peliculas(
     )
 
 
-# -------------------------
 # CREAR PELÍCULA
-# -------------------------
-
 @app.get("/peliculas/crear", response_class=HTMLResponse)
 async def crear_pelicula_form(request: Request):
     return templates.TemplateResponse(
         "crear_pelicula.html",
         {"request": request}
     )
-
 
 @app.post("/peliculas/crear", response_class=HTMLResponse)
 async def crear_pelicula(
@@ -91,9 +83,7 @@ async def crear_pelicula(
     )
 
 
-# -------------------------
 # EDITAR PELÍCULA
-# -------------------------
 @app.get("/peliculas/editar/{pelicula_id}", response_class=HTMLResponse)
 async def editar_pelicula_form(
     pelicula_id: int,
@@ -139,10 +129,7 @@ async def editar_pelicula(
     )
 
 
-
-# -------------------------
 # ELIMINAR PELÍCULA
-# -------------------------
 @app.get("/peliculas/eliminar/{pelicula_id}", response_class=HTMLResponse)
 async def eliminar_pelicula_form(
     pelicula_id: int,
@@ -179,10 +166,7 @@ async def eliminar_pelicula(
         {"request": request, "peliculas": peliculas}
     )
 
-
-# -------------------------
-# DETALLE PELÍCULA (AL FINAL)
-# -------------------------
+# DETALLE PELÍCULA 
 
 @app.get("/peliculas/{pelicula_id}", response_class=HTMLResponse)
 async def pelicula_detalle(
@@ -200,10 +184,7 @@ async def pelicula_detalle(
     )
 
 
-# -------------------------
 # API REST
-# -------------------------
-
 @app.get("/api/peliculas", response_model=list[Pelicula])
 async def api_listar_peliculas(
     session: Session = Depends(get_session)
@@ -222,9 +203,6 @@ async def api_crear_pelicula(
     return pelicula
 
 
-# -------------------------
 # EJECUCIÓN
-# -------------------------
-
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)

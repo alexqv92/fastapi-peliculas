@@ -26,13 +26,13 @@ def get_session():
 
 def init_db():
     # Esperar a que la base de datos esté lista
-    for intento in range(10):
+    for intento in range(30):
         try:
             SQLModel.metadata.create_all(engine)
             break
         except OperationalError:
             print("⏳ Esperando a la base de datos...")
-            time.sleep(2)
+            time.sleep(3)
     else:
         raise RuntimeError("❌ No se pudo conectar a la base de datos")
 

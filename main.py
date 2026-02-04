@@ -168,7 +168,6 @@ async def eliminar_pelicula(
     )
 
 # DETALLE PELÍCULA 
-
 @app.get("/peliculas/{pelicula_id}", response_class=HTMLResponse)
 async def pelicula_detalle(
     pelicula_id: int,

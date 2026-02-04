@@ -12,6 +12,7 @@ db_port: int = 3306# Cambiar por 3306 si se usa localmente
 db_name: str = "peliculasdb"
 
 DATABASE_URL = f"mysql+pymysql://{db_user}:{db_password}@{db_server}:{db_port}/{db_name}"
+#DATABASE_URL = (f"postgresql+psycopg2://{db_user}:{db_password}@{db_server}:{db_port}/{db_name}")
 
 engine = create_engine(
     os.getenv("DB_URL", DATABASE_URL),

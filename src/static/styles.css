@@ -3,8 +3,18 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
+    color: #222;
+}
+
+/* PRIMERA PÁGINA → azul fuerte */
+body.home {
     background: linear-gradient(135deg, #1e3c72, #2a5298);
     color: white;
+}
+
+/* PELÍCULAS → azul clarito */
+body.peliculas {
+    background: linear-gradient(135deg, #b3d9ff, #e6f2ff);
 }
 
 /* Contenedor central */
@@ -29,17 +39,19 @@ h2 {
 }
 
 /* Botón */
-.btn {
+.btn, .boton-nuevo {
     text-decoration: none;
     background-color: #ff9800;
     color: #222;
-    padding: 15px 30px;
+    padding: 12px 25px;
     border-radius: 8px;
     font-size: 1.1rem;
     transition: all 0.3s ease;
 }
 
-.btn:hover {
+.btn:hover,
+.boton-nuevo:hover {
     background-color: #ffc107;
     transform: scale(1.05);
 }
+

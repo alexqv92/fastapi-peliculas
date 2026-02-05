@@ -7,12 +7,12 @@ import time
 # Configuración por defecto (MySQL Docker / local)
 db_user: str = "quevedo"
 db_password: str = "1234"
-db_server: str = "fastapi-db" # Cambiar por "localhost" si se usa Docker
-db_port: int = 3306# Cambiar por 3306 si se usa localmente
+db_server: str = "postgres-db" # Cambiar por "localhost" si se usa Docker
+db_port: int = 5432 # Cambiar por 3306 si se usa localmente
 db_name: str = "peliculasdb"
 
-DATABASE_URL = f"mysql+pymysql://{db_user}:{db_password}@{db_server}:{db_port}/{db_name}"
-#DATABASE_URL = (f"postgresql+psycopg2://{db_user}:{db_password}@{db_server}:{db_port}/{db_name}")
+#DATABASE_URL = f"mysql+pymysql://{db_user}:{db_password}@{db_server}:{db_port}/{db_name}"
+DATABASE_URL = (f"postgresql+psycopg2://{db_user}:{db_password}@{db_server}:{db_port}/{db_name}")
 
 engine = create_engine(
     os.getenv("DB_URL", DATABASE_URL),

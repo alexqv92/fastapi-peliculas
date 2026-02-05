@@ -4,24 +4,10 @@
 
 En esta práctica se ha desarrollado una **aplicación web completa con FastAPI** que amplía una API REST previa mediante la integración de **páginas web con Jinja2**.  
 La aplicación permite gestionar una base de datos de películas mediante operaciones **CRUD** (crear, leer, actualizar y eliminar).
-
 Además, se ha configurado para funcionar con **diferentes motores de base de datos** y **distintos entornos de despliegue**, cumpliendo todos los requisitos solicitados.
 
 
-## 2. Tecnologías utilizadas
-
-- Python 3  
-- FastAPI  
-- Jinja2  
-- SQLModel  
-- MySQL  
-- PostgreSQL  
-- Docker  
-- Docker Compose  
-- Render  
-- GitHub  
-
-## 3. API REST y páginas web con Jinja2
+## 2. API REST y páginas web con Jinja2
 
 La aplicación parte de una **API REST** que expone endpoints para gestionar películas.  
 Sobre esta API se han añadido **páginas web renderizadas con Jinja2**, permitiendo una interacción visual con la base de datos.
@@ -34,7 +20,7 @@ Sobre esta API se han añadido **páginas web renderizadas con Jinja2**, permiti
 - Edición de películas existentes  
 - Eliminación de películas con confirmación  
 
-## 4. MySQL en local (Docker + FastAPI en local)
+## 3. MySQL en local (Docker + FastAPI en local)
 
 Se ha configurado la aplicación para que:
 
@@ -48,7 +34,7 @@ Se ha configurado la aplicación para que:
 - Conexión a la base de datos:
 
 ```text
-mysql+pymysql://usuario:password@localhost:3307/peliculasdb
+DATABASE_URL = f"mysql+pymysql://{db_user}:{db_password}@{db_server}:{db_port}/{db_name}"
 ```
 
 Al arrancar la aplicación:
@@ -62,7 +48,7 @@ http://127.0.0.1:8000
 ```
 
 
-## 5. MySQL con Docker (App + BD en contenedores)
+## 4. MySQL con Docker (App + BD en contenedores)
 
 Se ha configurado un entorno con **Docker Compose** donde:
 
@@ -73,18 +59,15 @@ Se ha configurado un entorno con **Docker Compose** donde:
 Esto permite ejecutar toda la aplicación sin depender del entorno local.
 
 
-## 6. PostgreSQL en local
+## 5. PostgreSQL en local
 
-La aplicación se ha adaptado para funcionar con **PostgreSQL** modificando únicamente la cadena de conexión:
+La aplicación se ha adaptado para funcionar con **PostgreSQL** modificando la cadena de conexión y creando un compose para que quede mas limpio.
 
 ```text
-postgresql://usuario:password@localhost:5432/peliculasdb
+DATABASE_URL = (f"postgresql+psycopg2://{db_user}:{db_password}@{db_server}:{db_port}/{db_name}")
 ```
 
-No ha sido necesario realizar cambios en el código de la aplicación.
-
-
-## 7. PostgreSQL en Render
+## 6. PostgreSQL en Render
 
 Se ha desplegado una base de datos **PostgreSQL en la nube** utilizando Render.
 
@@ -95,7 +78,7 @@ Se ha desplegado una base de datos **PostgreSQL en la nube** utilizando Render.
 3. Configurar la variable de entorno `DB_URL`  
 4. Usar dicha variable en la aplicación  
 
-## 8. Despliegue de FastAPI en Render
+## 7. Despliegue de FastAPI en Render
 
 La aplicación FastAPI se ha desplegado en Render como **Web Service** con runtime **Docker**.
 
@@ -106,7 +89,7 @@ La aplicación FastAPI se ha desplegado en Render como **Web Service** con runti
 - Expone la aplicación en el puerto **8000**
 - La aplicación se conecta a PostgreSQL en Render mediante variables de entorno
 
-## 9. Inicialización y subida del repositorio a GitHub
+## 8. Inicialización y subida del repositorio a GitHub
 
 Se ha creado y subido el repositorio con los siguientes comandos:
 
@@ -119,8 +102,7 @@ git remote add origin https://github.com/alexqv92/fastapi-peliculas.git
 git push -u origin main
 ```
 
-
-## 10. Deploy de FastAPI + PostgreSQL en Render
+## 9. Deploy de FastAPI + PostgreSQL en Render
 
 ### Pasos del despliegue
 
@@ -130,4 +112,4 @@ git push -u origin main
 4. Lanzar el deploy  
 5. Verificar el correcto funcionamiento  
 
-✔ **DEPLOY COMPLETADO CON ÉXITO**
+**DEPLOY COMPLETADO CON ÉXITO**
